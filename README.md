@@ -8,6 +8,7 @@ This is a full-stack application built with JavaScript, CSS, React, Node, MongoD
 This application uses MongoDB Atlas to host its database. As such, I recommend deleting the existing collection, then importing the data from the seeder file before starting, for a clean slate.
 
 - Navigate to `/api` 
+- Replace the `config.env` file with the one from the email
 - Run `npm install`
 - Run `npm run db:delete`
 - Run `npm run db:import`

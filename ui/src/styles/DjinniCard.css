@@ -1,0 +1,103 @@
+.card {
+  background: white;
+  box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
+  margin-bottom: 3rem;
+  transform: skewX(-20deg);
+  display: flex;
+  transition: all 0.5s;
+}
+
+.card__icon {
+  line-height: 1.2;
+  padding: 1.5rem 6rem 0.5rem 1.5rem;
+  transform: skewX(20deg);
+}
+
+.card__icon--djinni {
+  image-rendering: pixelated;
+  width: 200%;
+  position: relative;
+  bottom: 1.2rem;
+  left: 0.3rem;
+}
+
+.elemental-star {
+  image-rendering: pixelated;
+  margin-left: 1.5rem;
+}
+
+.card__djinni-name-box {
+  background: linear-gradient(to bottom, #9be15d, #00e3ae);
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+}
+
+.card__djinni-name {
+  color: white;
+  font-size: 3.25rem;
+  transform: skewX(20deg);
+}
+
+.card__details {
+  display: flex;
+}
+
+.card__detail-box {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.card__detail-box:last-child {
+  border: none;
+}
+
+.card__detail {
+  font-size: 1.6rem;
+  transform: skewX(20deg);
+  padding: 1.75rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.card__detail--djinni-description {
+}
+
+.card__link:link,
+.card__link:visited {
+  flex: 0 0 auto;
+  background-color: #79e17b;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 2.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.card__link:hover,
+.card__link:active {
+  background-color: #9be15d;
+}
+
+.card__link {
+  display: flex;
+}
+
+.card__link span {
+  transform: skewX(20deg);
+  display: inline-block;
+}
+
+.card:hover {
+  transform: skewX(-20deg) scale(1.08);
+  box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
+}

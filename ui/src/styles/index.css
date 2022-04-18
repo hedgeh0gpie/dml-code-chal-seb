@@ -1,0 +1,80 @@
+/* GLOBAL STYLES GO HERE */
+
+@font-face {
+  font-family: 'golden_sunregular';
+  src: url('./fonts/golden-sun-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: optional;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 5rem 5rem 10rem;
+  line-height: 1.7;
+  font-family: 'golden_sunregular', sans-serif;
+  color: #555;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+}
+
+h1 {
+  font-size: 6rem;
+  color: white;
+  transform: skewY(-5deg);
+  text-align: center;
+  position: relative;
+  word-spacing: 3px;
+}
+
+h1::before {
+  content: '';
+  display: block;
+  height: 65%;
+  width: 49%;
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  background: linear-gradient(to bottom, #9be15d, #00e3ae);
+  opacity: 0.8;
+  z-index: -1;
+  transform: skewY(370deg) translate(-50%, -50%);
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #fff, #eee);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}

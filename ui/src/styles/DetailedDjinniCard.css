@@ -1,0 +1,139 @@
+.djinni {
+  width: 53.3rem;
+  margin: 9rem auto 0;
+  background: white;
+  box-shadow: 0 3rem 6rem 1rem rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.djinni__hero {
+  position: relative;
+  height: 40rem;
+  overflow: hidden;
+}
+
+.djinni__image {
+  image-rendering: pixelated;
+  background-size: cover;
+  height: 40rem;
+}
+
+.djinni__back:link,
+.djinni__back:visited {
+  position: absolute;
+  bottom: 1.9rem;
+  left: 2rem;
+}
+
+.error__back:link,
+.error__back:visited {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+}
+
+.error__back:hover,
+.error__back:active {
+  background-color: #79e17b;
+}
+
+.djinni__name {
+  background: linear-gradient(to bottom, #9be15d, #00e3ae);
+  padding: 1rem;
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  word-spacing: 2px;
+}
+
+.djinni__details {
+  background-color: #eee;
+  padding: 4rem 6rem;
+  font-size: 1.9rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+.djinni__battle-effect {
+  padding: 5rem 6rem;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  background-color: #eee;
+}
+
+.djinni__set-bonuses {
+  background-color: #79e17b;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem;
+  text-align: center;
+  transform: scale(1.07) skewX(-20deg);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.djinni__bottom-banner {
+  background-color: #79e17b;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 2.9rem 1.5rem;
+  text-align: center;
+  transform: scale(1.07) skewX(-20deg);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.djinni__delete span {
+  transform: skewX(20deg);
+}
+
+.djinni__delete:link,
+.djinni__delete:visited {
+  position: absolute;
+  bottom: 1.9rem;
+  right: 2rem;
+}
+
+.error__back:link,
+.error__back:visited,
+.djinni__back:link,
+.djinni__back:visited,
+.djinni__delete:link,
+.djinni__delete:visited {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 1000;
+  color: #555;
+  background-color: white;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  border-radius: 100rem;
+  padding: 0 2rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.djinni__delete:hover,
+.djinni__delete:active {
+  background-color: #79e17b;
+}
+
+.djinni__back:hover,
+.djinni__back:active {
+  background-color: #79e17b;
+}

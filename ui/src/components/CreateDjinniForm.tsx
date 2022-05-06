@@ -1,7 +1,8 @@
 import * as React from 'react'
 import '../styles/CreateDjinniForm.css'
+import { useCreateDjinni } from '../client/hooks/useCreateDjinni'
 
-export const CreateDjinniForm = ({ djinn, setDjinn }) => {
+export const CreateDjinniForm = () => {
   const [name, setName] = React.useState('My Djinni')
   const [element, setElement] = React.useState('Venus')
   const [description, setDescription] = React.useState('This spirit is talented in the ways of React and Node!')
@@ -88,23 +89,7 @@ export const CreateDjinniForm = ({ djinn, setDjinn }) => {
     star
   }
 
-  const createDjinni = async (url = '', data = {}) => {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    return response.json()
-  }
-
-  const createDjinniButton = () => {
-    createDjinni('http://localhost:8080/api/v1/djinn/', newDjinniRequest).then(data => {
-      const newDjinn = [data.data.djinni, ...djinn]
-      setDjinn(newDjinn)
-    })
-  }
+  const createMutation = useCreateDjinni(newDjinniRequest)
 
   return (
     <section className='section-create'>
@@ -264,7 +249,7 @@ export const CreateDjinniForm = ({ djinn, setDjinn }) => {
                 </label>
               </div>
             </form>
-            <button className='btn btn--white' onClick={createDjinniButton}>
+            <button className='btn btn--white' onClick={() => createMutation.mutate(newDjinniRequest)}>
               Create New Djinni
             </button>
           </div>

@@ -1,6 +1,6 @@
 # DML Coding Challenge Submission, by Sebastian McKelvey
 
-This is a full-stack application built with JavaScript, CSS, React, Node, MongoDB, and Express. It features the adorable, yet deadly, *Djinn* from the legendary JRPG, *Golden Sun*.  
+This is a full-stack application built with JavaScript, TypeScript, CSS, React, Node, MongoDB, and Express. It features the adorable, yet deadly, *Djinn* from the legendary JRPG, *Golden Sun*.  
 <br>
 
 ## Getting Started

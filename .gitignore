@@ -9,3 +9,4 @@ ui/build
 zip/submission.zip
 .idea
 *.iml
+config.env

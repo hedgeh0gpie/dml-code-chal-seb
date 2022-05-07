@@ -1,23 +1,11 @@
 import * as React from 'react'
 import '../styles/DetailedDjinniCard.css'
 import { useHistory, Link } from 'react-router-dom'
+import { useDeleteDjinni } from '../client/hooks/useDeleteDjinni'
 
-export const DetailedDjinniCard = ({ djinn, setDjinn, selectedDjinni }) => {
+export const DetailedDjinniCard = ({ selectedDjinni }) => {
   const history = useHistory()
-
-  const deleteDjinni = () => {
-    const filterSelectedDjinni = djinni => {
-      if (djinni !== selectedDjinni) {
-        return true
-      }
-    }
-    const filteredDjinn = djinn.filter(filterSelectedDjinni)
-    setDjinn(filteredDjinn)
-
-    fetch('http://localhost:8080/api/v1/djinn/' + selectedDjinni._id, {
-      method: 'DELETE'
-    })
-  }
+  const deleteMutation = useDeleteDjinni(selectedDjinni._id)
 
   return (
     <figure className='djinni' id='djinni-figure'>
@@ -25,7 +13,7 @@ export const DetailedDjinniCard = ({ djinn, setDjinn, selectedDjinni }) => {
         Back
       </Link>
 
-      <Link className='djinni__delete' onClick={deleteDjinni} to='/'>
+      <Link className='djinni__delete' onClick={() => deleteMutation.mutate(selectedDjinni._id)} to='/'>
         Delete
       </Link>
 

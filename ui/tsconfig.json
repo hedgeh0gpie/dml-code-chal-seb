@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {},
+    "paths": {
+      "@/*": ["*"]
+    },
     "outDir": "dist",
     "target": "es5",
     "lib": [
@@ -26,5 +28,6 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

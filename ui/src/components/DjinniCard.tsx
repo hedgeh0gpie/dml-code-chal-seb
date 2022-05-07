@@ -3,10 +3,6 @@ import '../styles/DjinniCard.css'
 import { Link } from 'react-router-dom'
 
 export default function DjinniCard({ djinni, setSelectedDjinni }) {
-  let setSelectedDjinniOnClick = () => {
-    setSelectedDjinni(djinni)
-  }
-
   return (
     <figure className='card'>
       <div className='card__icon'>
@@ -23,7 +19,7 @@ export default function DjinniCard({ djinni, setSelectedDjinni }) {
         </div>
       </div>
 
-      <Link onClick={setSelectedDjinniOnClick} to={`/djinni/${djinni._id}`} className='card__link'>
+      <Link onClick={() => setSelectedDjinni(djinni)} to={`/djinni/${djinni._id}`} className='card__link'>
         <span>
           More Info
           <img className='elemental-star' src={`img/${djinni.star}`} alt={`${djinni.element} star`} />

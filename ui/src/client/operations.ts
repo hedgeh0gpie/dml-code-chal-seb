@@ -1,3 +1,4 @@
+import { DjinniCreationPayload } from './hooks'
 import { client } from './index'
 
 export interface Djinni {
@@ -18,10 +19,11 @@ export interface Djinni {
   star: string
 }
 
-export const getDjinn = () => client.get<{ data: { djinn: Djinni[] } }>('/djinn', { params: { sort: '-element,name' } })
+export const getDjinn = (sort: string = '-element,name') =>
+  client.get<{ data: { djinn: Djinni[] } }>('/djinn', { params: { sort } })
 
 export const getDjinni = (djinniId: string) => client.get<{ data: { djinni: Djinni } }>(`/djinn/${djinniId}`)
 
-export const createDjinni = (djinni: object) => client.post<Djinni>('/djinn', djinni)
+export const createDjinni = (djinni: DjinniCreationPayload) => client.post<Djinni>('/djinn', djinni)
 
 export const deleteDjinni = (djinniId: string) => client.delete<Djinni>(`/djinn/${djinniId}`)

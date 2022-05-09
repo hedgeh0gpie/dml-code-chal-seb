@@ -1,8 +1,10 @@
-import React from 'react'
-import '../styles/DjinniCard.css'
+import type { FC } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function DjinniCard({ djinni, setSelectedDjinni }) {
+import type { Djinni } from 'client/operations'
+import 'styles/DjinniCard.css'
+
+const DjinniCard: FC<Props> = ({ djinni }) => {
   return (
     <figure className='card'>
       <div className='card__icon'>
@@ -19,7 +21,7 @@ export default function DjinniCard({ djinni, setSelectedDjinni }) {
         </div>
       </div>
 
-      <Link onClick={() => setSelectedDjinni(djinni)} to={`/djinni/${djinni._id}`} className='card__link'>
+      <Link to={`/djinni/${djinni._id}`} className='card__link'>
         <span>
           More Info
           <img className='elemental-star' src={`img/${djinni.star}`} alt={`${djinni.element} star`} />
@@ -28,3 +30,9 @@ export default function DjinniCard({ djinni, setSelectedDjinni }) {
     </figure>
   )
 }
+
+interface Props {
+  djinni: Djinni
+}
+
+export default DjinniCard

@@ -1,57 +1,58 @@
-import * as React from 'react'
-import '../styles/CreateDjinniForm.css'
-import { useCreateDjinni } from '../client/hooks/useCreateDjinni'
+import { useState, FC, ChangeEventHandler } from 'react'
 
-export const CreateDjinniForm = () => {
-  const [name, setName] = React.useState('My Djinni')
-  const [element, setElement] = React.useState('Venus')
-  const [description, setDescription] = React.useState('This spirit is talented in the ways of React and Node!')
-  const [hp, setHp] = React.useState(0)
-  const [pp, setPp] = React.useState(0)
-  const [atk, setAtk] = React.useState(0)
-  const [def, setDef] = React.useState(0)
-  const [agi, setAgi] = React.useState(0)
-  const [lck, setLck] = React.useState(0)
-  const [damage, setDamage] = React.useState('+30')
-  const [battleEffect, setBattleEffect] = React.useState(`Increases Adept's programming skills`)
-  const [icon, setIcon] = React.useState('venus_djinn.gif')
-  const [image] = React.useState('created_djinn.png')
-  const [star, setStar] = React.useState('star_venus.gif')
+import { DjinniCreationPayload, useCreateDjinni } from 'client/hooks/useCreateDjinni'
+import 'styles/CreateDjinniForm.css'
 
-  const handleNameChange = event => {
+const CreateDjinniForm: FC = () => {
+  const [name, setName] = useState('My Djinni')
+  const [element, setElement] = useState('Venus')
+  const [description, setDescription] = useState('This spirit is talented in the ways of React and Node!')
+  const [hp, setHp] = useState(0)
+  const [pp, setPp] = useState(0)
+  const [atk, setAtk] = useState(0)
+  const [def, setDef] = useState(0)
+  const [agi, setAgi] = useState(0)
+  const [lck, setLck] = useState(0)
+  const [damage, setDamage] = useState('+30')
+  const [battleEffect, setBattleEffect] = useState(`Increases Adept's programming skills`)
+  const [icon, setIcon] = useState('venus_djinn.gif')
+  const [image] = useState('created_djinn.png')
+  const [star, setStar] = useState('star_venus.gif')
+
+  const handleNameChange: ChangeEventHandler<HTMLInputElement> = event => {
     setName(event.target.value)
   }
-  const handleElementChange = event => {
+  const handleElementChange: ChangeEventHandler<HTMLSelectElement> = event => {
     setElement(event.target.value)
   }
-  const handleDescriptionChange = event => {
+  const handleDescriptionChange: ChangeEventHandler<HTMLInputElement> = event => {
     setDescription(event.target.value)
   }
-  const handleHpChange = event => {
-    setHp(event.target.value)
+  const handleHpChange: ChangeEventHandler<HTMLInputElement> = event => {
+    setHp(Number(event.target.value))
   }
-  const handlePpChange = event => {
-    setPp(event.target.value)
+  const handlePpChange: ChangeEventHandler<HTMLInputElement> = event => {
+    setPp(Number(event.target.value))
   }
-  const handleAtkChange = event => {
-    setAtk(event.target.value)
+  const handleAtkChange: ChangeEventHandler<HTMLInputElement> = event => {
+    setAtk(Number(event.target.value))
   }
-  const handleDefChange = event => {
-    setDef(event.target.value)
+  const handleDefChange: ChangeEventHandler<HTMLInputElement> = event => {
+    setDef(Number(event.target.value))
   }
-  const handleAgiChange = event => {
-    setAgi(event.target.value)
+  const handleAgiChange: ChangeEventHandler<HTMLInputElement> = event => {
+    setAgi(Number(event.target.value))
   }
-  const handleLckChange = event => {
-    setLck(event.target.value)
+  const handleLckChange: ChangeEventHandler<HTMLInputElement> = event => {
+    setLck(Number(event.target.value))
   }
-  const handleDamageChange = event => {
+  const handleDamageChange: ChangeEventHandler<HTMLInputElement> = event => {
     setDamage(event.target.value)
   }
-  const handleBattleEffectChange = event => {
+  const handleBattleEffectChange: ChangeEventHandler<HTMLInputElement> = event => {
     setBattleEffect(event.target.value)
   }
-  const handleIconAndStarChange = event => {
+  const handleIconAndStarChange: ChangeEventHandler<HTMLSelectElement> = event => {
     switch (event.target.value) {
       case 'Mercury':
         setIcon('mercury_djinn.gif')
@@ -72,7 +73,7 @@ export const CreateDjinniForm = () => {
     }
   }
 
-  const newDjinniRequest = {
+  const newDjinniRequest: DjinniCreationPayload = {
     name,
     element,
     description,
@@ -89,7 +90,7 @@ export const CreateDjinniForm = () => {
     star
   }
 
-  const createMutation = useCreateDjinni(newDjinniRequest)
+  const createMutation = useCreateDjinni()
 
   return (
     <section className='section-create'>
@@ -258,3 +259,5 @@ export const CreateDjinniForm = () => {
     </section>
   )
 }
+
+export default CreateDjinniForm

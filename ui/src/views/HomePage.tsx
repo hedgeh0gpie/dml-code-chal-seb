@@ -1,10 +1,11 @@
-import DjinnDisplay from '../components/DjinnDisplay'
-import { CreateDjinniForm } from '../components/CreateDjinniForm'
-import '../styles/HomePage.css'
-import * as React from 'react'
-import { useGetDjinn } from '../client'
+import type { FC } from 'react'
 
-const HomePage = ({ setSelectedDjinni }) => {
+import { useGetDjinn } from 'client'
+import DjinnDisplay from 'components/DjinnDisplay'
+import CreateDjinniForm from 'components/CreateDjinniForm'
+import 'styles/HomePage.css'
+
+const HomePage: FC = () => {
   const { data: djinn = [], isLoading, error } = useGetDjinn()
   if (isLoading) return <h1>Loading...</h1>
   if (error) return <p>{error.toString()}</p>
@@ -15,7 +16,7 @@ const HomePage = ({ setSelectedDjinni }) => {
 
       {/*<Sorting djinn={djinn} />*/}
 
-      <DjinnDisplay djinn={djinn} setSelectedDjinni={setSelectedDjinni} />
+      <DjinnDisplay djinn={djinn} />
     </div>
   )
 }

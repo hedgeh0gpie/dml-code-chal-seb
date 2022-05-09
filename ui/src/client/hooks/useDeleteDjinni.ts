@@ -4,9 +4,9 @@ import { deleteDjinni } from '../operations'
 import { djinniCacheKey } from './shared'
 import { queryClient } from '../../App'
 
-export const useDeleteDjinni = (id: string, options?: UseMutationOptions<void, AxiosError>) => {
-  return useMutation<void, AxiosError>(
-    async () => {
+export const useDeleteDjinni = (options?: UseMutationOptions<void, AxiosError, string>) => {
+  return useMutation(
+    async id => {
       await deleteDjinni(id)
     },
     {

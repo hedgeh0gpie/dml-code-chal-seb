@@ -1,21 +1,24 @@
-import * as React from 'react'
-import '../styles/DetailedDjinniCard.css'
-import { useHistory, Link } from 'react-router-dom'
-import { useDeleteDjinni } from '../client/hooks/useDeleteDjinni'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { FC } from 'react'
+import { useHistory } from 'react-router-dom'
 
-export const DetailedDjinniCard = ({ selectedDjinni }) => {
+import { useDeleteDjinni } from 'client/hooks/useDeleteDjinni'
+import { Djinni } from 'client/operations'
+import 'styles/DetailedDjinniCard.css'
+
+const DetailedDjinniCard: FC<Props> = ({ selectedDjinni }) => {
   const history = useHistory()
-  const deleteMutation = useDeleteDjinni(selectedDjinni._id)
+  const deleteMutation = useDeleteDjinni()
 
   return (
     <figure className='djinni' id='djinni-figure'>
-      <Link className='djinni__back' onClick={history.goBack}>
+      <a className='djinni__back' onClick={history.goBack}>
         Back
-      </Link>
+      </a>
 
-      <Link className='djinni__delete' onClick={() => deleteMutation.mutate(selectedDjinni._id)} to='/'>
+      <button className='djinni__delete' onClick={() => deleteMutation.mutate(selectedDjinni._id)}>
         Delete
-      </Link>
+      </button>
 
       <div className='djinni__hero'>
         <img src={`/img/${selectedDjinni.image}`} alt={selectedDjinni.name} className='djinni__image' />
@@ -37,3 +40,9 @@ export const DetailedDjinniCard = ({ selectedDjinni }) => {
     </figure>
   )
 }
+
+interface Props {
+  selectedDjinni: Djinni
+}
+
+export default DetailedDjinniCard

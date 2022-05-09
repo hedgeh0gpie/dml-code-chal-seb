@@ -2,7 +2,6 @@ import { useState, FC, ChangeEventHandler } from 'react'
 
 import { DjinniCreationPayload, useCreateDjinni } from 'client/hooks/useCreateDjinni'
 import 'styles/CreateDjinniForm.css'
-import { Djinni } from 'client/operations'
 
 const CreateDjinniForm: FC = () => {
   const [name, setName] = useState('My Djinni')
